@@ -19,6 +19,7 @@ export class PlayerService implements IPlayerService {
     this.guild_id = guild_id;
     this.audio_player = player;
     this.audio_player.on(AudioPlayerStatus.Idle, () => { this.play_next_song() });
+    this.audio_player.on("error", (err) => { console.error(err) })
   }
 
   play(song: ISong) {
